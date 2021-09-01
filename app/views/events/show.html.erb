@@ -16,6 +16,8 @@
 
 <div class="row justify-content-center">
   <div class="col-12 col-md-8 col-lg-6">
-    <%= render 'shared/form-booking', event: @event, booking: @booking %>
+    <% if Booking.where(user: current_user, event: @event).empty? %>
+      <%= render 'shared/form-booking', event: @event, booking: @booking %>
+    <% end %>
   </div>
 </div>
