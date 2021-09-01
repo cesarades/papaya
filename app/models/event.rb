@@ -3,6 +3,9 @@ class Event < ApplicationRecord
 
   pg_search_scope :search, against: %i[address name category], using: { tsearch: { prefix: true } }
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   belongs_to :user
   has_many :users, through: :bookings
   has_many :bookings, dependent: :destroy
@@ -14,7 +17,7 @@ class Event < ApplicationRecord
   validates :recurrence_times, numericality: { only_integer: true, greater_than: 0 }
   validate :recurrence?
   validates :address, presence: true
-  validates :lat, :long, numericality: true
+  validates :latitude, :longitude, numericality: true
   validates :start_time, :end_time, presence: true
   validate :past?, :positive_time?
 

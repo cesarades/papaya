@@ -1,0 +1,11 @@
+<%= simple_form_for(@event) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :category %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :address %>
+  <%= f.input :recurrence_times %>
+  <%= f.input :recurrence_frequency %>
+  <%= f.submit %>
+<% end %>

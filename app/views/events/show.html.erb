@@ -1,3 +1,5 @@
+<%= link_to "Back", :back %>
+
 <div class="row justify-content-center">
   <div class="col-12 col-md-8 col-lg-6">
     <h1><%= @event.name %></h1>
@@ -7,8 +9,6 @@
     <p><strong>Times: </strong><%= @event.recurrence_times %></p>
     <p><strong>Frequency: </strong><%= @event.recurrence_frequency %></p>
     <p><strong>Address: </strong><%= @event.address %></p>
-    <p><strong>Lat: </strong><%= @event.lat %></p>
-    <p><strong>Lon: </strong><%= @event.long %></p>
     <p><strong>Start: </strong><%= @event.start_time %></p>
     <p><strong>End: </strong><%= @event.end_time %></p>
   </div>

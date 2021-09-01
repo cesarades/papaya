@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @event = Event.new
   end
 end

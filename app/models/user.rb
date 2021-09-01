@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   validate :volunteer, :organization?
 
+  has_one_attached :photo, dependent: :destroy
+
   private
 
   def volunteer
