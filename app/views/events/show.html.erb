@@ -16,8 +16,12 @@
 
 <div class="row justify-content-center">
   <div class="col-12 col-md-8 col-lg-6">
-    <% if Booking.where(user: current_user, event: @event).empty? %>
+    <% if @booking.pending.nil? %>
       <%= render 'shared/form-booking', event: @event, booking: @booking %>
+    <% elsif @booking.pending %>
+      <h3>Your booking is pending</h3>
+    <% else %>
+      <%= link_to 'Unregister', event_booking_path(@event, @booking), method: :delete, class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>

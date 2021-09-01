@@ -12,7 +12,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @booking = Booking.new
+    @booking = Booking.where(user: current_user, event: @event)
+    @booking = @booking.empty? ? Booking.new : @booking[0]
   end
 
   def create
